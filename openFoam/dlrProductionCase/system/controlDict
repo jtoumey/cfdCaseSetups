@@ -1,0 +1,85 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     pimpleFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         2.0;
+
+deltaT          1e-05;
+
+writeControl    runTime;
+
+writeInterval   0.001;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  10;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   8;
+
+runTimeModifiable true;
+
+adjustTimeStep  no;
+
+maxCo           1.0;
+
+libs
+(
+    "libinflowgenerator.so"
+);
+
+fieldAverage
+{
+	type            fieldAverage;
+        functionObjectLibs ( "libfieldFunctionObjects.so" );
+        enabled         true;
+        writeControl    runTime;
+	writeInterval   1e-3; 
+        timeStart       0.9;
+        timeEnd         5;
+
+        fields
+        (
+	        U
+                {
+                	mean        on;
+                    	prime2Mean  on;
+                    	base        time;
+                }
+
+                p 
+                {
+                    mean        on;
+                    prime2Mean  on;
+                    base        time;
+                }
+        );
+}
+
+// ************************************************************************* //
