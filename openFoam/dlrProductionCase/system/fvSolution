@@ -17,15 +17,18 @@ FoamFile
 
 solvers
 {
-    "(p|rho)"
+    p
     {
-        solver          PCG;
-        preconditioner  DIC;
+        solver          GAMG;
+	nCellsInCoarsestLevel 4100;
+	mergeLevels     3;
+	smoother        GaussSeidel;
         tolerance       1e-6;
         relTol          0.01;
+	minIter         3;
     }
 
-    "(p|rho)Final"
+    pFinal
     {
         $p;
         relTol          0;
@@ -48,13 +51,10 @@ solvers
 
 PIMPLE
 {
-    momentumPredictor yes;
-    nOuterCorrectors 3;
-    nCorrectors     1;
-    nNonOrthogonalCorrectors 0;
-
-    pMinFactor      0.5;
-    pMaxFactor      2.0;
+    momentumPredictor        yes;
+    nOuterCorrectors         1;
+    nCorrectors              2;
+    nNonOrthogonalCorrectors 1;
 }
 
 relaxationFactors
