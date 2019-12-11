@@ -16,14 +16,14 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 
-numberOfSubdomains 144;
+numberOfSubdomains 180;
 
-method simple;
+method scotch;
 
-simpleCoeffs
+scotchCoeffs
 {
-	n (9 4 4);
-	delta 0.001;
+	// processorWeights;
+	// strategy;
 }
 
 distributed no;

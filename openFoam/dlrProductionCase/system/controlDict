@@ -25,7 +25,7 @@ stopAt          endTime;
 
 endTime         2.0;
 
-deltaT          8e-06;
+deltaT          7e-06;
 
 writeControl    runTime;
 
@@ -61,7 +61,7 @@ fieldAverage
         enabled         true;
         writeControl    runTime;
 	writeInterval   0.01; 
-        timeStart       0.9;
+        timeStart       1.0;
         timeEnd         5;
 
         fields
