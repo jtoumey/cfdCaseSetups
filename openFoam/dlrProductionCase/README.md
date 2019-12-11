@@ -18,3 +18,8 @@ These components include
 * Most optimal mesh thus far
   + 16.9E6 cells, with appropriate resolution in the combustor
    
+* This case is pre-decomposePar. 
+  Decomposing will distribute velocities to various processor folders, which may be unique. 
+
+* Because the output format is binary, the 0 folder will be overwritten to contain binary data for velocity. 
+  Hence, this case preserves the turbulence inflow generator velocity.
