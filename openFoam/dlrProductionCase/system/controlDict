@@ -54,32 +54,33 @@ libs
     "libinflowgenerator.so"
 );
 
-fieldAverage
+functions
 {
-	type            fieldAverage;
-        functionObjectLibs ( "libfieldFunctionObjects.so" );
-        enabled         true;
-        writeControl    runTime;
-	writeInterval   0.01; 
-        timeStart       1.0;
-        timeEnd         5;
+	fieldAverage0
+	{
+		type            fieldAverage;
+        	libs            ( "libfieldFunctionObjects.so" );
+        	writeControl    writeTime;
+        	timeStart       1.0;
+        	timeEnd         2.0;
 
-        fields
-        (
-	        U
-                {
-                	mean        on;
-                    	prime2Mean  on;
-                    	base        time;
-                }
+        	fields
+        	(
+	        	U
+                	{
+                		mean        on;
+                    		prime2Mean  on;
+                    		base        time;
+                	}
 
-                p 
-                {
-                    mean        on;
-                    prime2Mean  on;
-                    base        time;
-                }
-        );
+                	p 
+               		{
+                    		mean        on;
+                    		prime2Mean  on;
+                    		base        time;
+                	}
+        	);
+	}
 }
 
 // ************************************************************************* //
