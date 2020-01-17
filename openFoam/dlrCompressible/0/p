@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [1 -1 -2 0 0 0 0];
 
 internalField   uniform 101325;
 
@@ -27,8 +27,12 @@ boundaryField
 
     combustorOutlet
     {
-        type            fixedValue;
-        value           uniform 101325;
+        type            waveTransmissive;
+        psi             thermo:psi;
+        gamma           1.4;
+        fieldInf        101325;
+        lInf            0.3;
+        value           $internalField;
     }
 
     combustorWall
