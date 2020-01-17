@@ -17,7 +17,7 @@ FoamFile
 
 solvers
 {
-    p
+    "(p|rho)"
     {
         solver          GAMG;
 	nCellsInCoarsestLevel 4100;
@@ -28,7 +28,7 @@ solvers
 	minIter         3;
     }
 
-    pFinal
+    "(p|rho)Final"
     {
         $p;
         relTol          0;
