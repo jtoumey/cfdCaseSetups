@@ -56,29 +56,29 @@ libs
 
 functions
 {
-	fieldAverage0
+    fieldAverage0
 	{
-		type            fieldAverage;
+	        type            fieldAverage;
         	libs            ( "libfieldFunctionObjects.so" );
         	writeControl    writeTime;
-        	timeStart       1.0;
+        	timeStart       0 .0;
         	timeEnd         2.0;
 
         	fields
         	(
-	        	U
-                	{
-                		mean        on;
-                    		prime2Mean  on;
-                    		base        time;
-                	}
+	            U
+                {
+                    mean        on;
+                    prime2Mean  on;
+                    base        time;
+                }
 
-                	p 
-               		{
-                    		mean        on;
-                    		prime2Mean  on;
-                    		base        time;
-                	}
+                p
+               	{
+                	mean        on;
+                	prime2Mean  on;
+                	base        time;
+                }
         	);
 	}
 }
