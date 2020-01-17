@@ -58,29 +58,42 @@ functions
 {
     fieldAverage0
 	{
-	        type            fieldAverage;
-        	libs            ( "libfieldFunctionObjects.so" );
-        	writeControl    writeTime;
-        	timeStart       0 .0;
-        	timeEnd         2.0;
+        type            fieldAverage;
+    	libs            ( "libfieldFunctionObjects.so" );
+    	writeControl    writeTime;
+    	timeStart       0 .0;
+    	timeEnd         2.0;
 
-        	fields
-        	(
-	            U
-                {
-                    mean        on;
-                    prime2Mean  on;
-                    base        time;
-                }
+    	fields
+    	(
+            U
+            {
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            }
 
-                p
-               	{
-                	mean        on;
-                	prime2Mean  on;
-                	base        time;
-                }
-        	);
+            p
+           	{
+            	mean        on;
+            	prime2Mean  on;
+            	base        time;
+            }
+    	);
 	}
+
+    rhoFunc
+    {
+        type             writeObjects;
+        libs            ( "libutilityFunctionObjects.so" );
+        writeControl    writeTime;
+        timeStart       0.0;
+        timeEnd         2.0;
+        objects
+        (
+            "rho"
+        );
+    }
 }
 
 // ************************************************************************* //
