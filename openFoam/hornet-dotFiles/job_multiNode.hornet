@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH -J dlrOf_cT_00
+#SBATCH -o dlrOf_cT_00.o%j 
+#SBATCH -e dlrOf_cT_00.e%j
+#SBATCH --partition=generalsky
+#SBATCH --exclusive
+####SBATCH --ntasks=180
+####SBATCH --nodes=5
+#SBATCH --time 12:00:00
+#SBATCH --mail-user=julian.toumey@uconn.edu
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=end
+#SBATCH --dependency=afterany:2932597
+##srun --mpi=openmpi pimpleFoam -parallel
+srun rhoPimpleFoam
