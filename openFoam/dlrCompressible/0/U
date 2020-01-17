@@ -3238,8 +3238,9 @@ boundaryField
 
     combustorOutlet
     {
-	type 		pressureInletOutletVelocity;
-	value 		uniform (0 0 0);
+	    type 		pressureInletOutletVelocity;
+        inletValue  uniform (0 0 0);
+	    value 		uniform (0 0 0);
     }
 
     combustorWall
