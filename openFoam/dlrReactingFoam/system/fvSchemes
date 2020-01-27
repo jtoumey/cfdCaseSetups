@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  5                                     |
+|  \\    /   O peration     | Version:  2.3.0                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -27,16 +27,60 @@ gradSchemes
 
 divSchemes
 {
-    default         Gauss linear;
-    div(phi,U)      Gauss limitedLinear 1;
-    div(phi,e)      Gauss limitedLinear 1;
+    default         Gauss linear; //none;
+
+    div(phi,U)      Gauss linear; //limitedLinearV 1;
     div(phi,K)      Gauss limitedLinear 1;
-    div(phiv,p)     Gauss linear;
-    div(phi,k)      Gauss limitedLinear 1;
-    div(phi,B)      Gauss limitedLinear 1;
-    div(phi,muTilda) Gauss limitedLinear 1;
-    div(B)          Gauss linear;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+    div(phid,p)     Gauss limitedLinear 1;
+    div(phi,epsilon) Gauss limitedLinear 1;
+    div(phi,k) Gauss limitedLinear 1;
+    div((muEff*dev2(T(grad(U))))) Gauss linear;
+    div(phi,soot)       Gauss limitedLinear 1;
+    div((muFeff*dev2(grad(U).T()))) Gauss linear;
+    div(((rho*nuEff)*dev2(T(grad(U)))))  Gauss linear;
+    div((grad(T)*((((0.55*Ysoot)*thermo:mu)|T)|(1+Ysoot))))  Gauss linear;
+    div((grad(T)*(((0.55*Ysoot)*thermo:mu)|T)))   Gauss linear;
+    div(phi,Ysoot)  Gauss linear;
+    div(phi,Yi_h) Gauss multivariateSelection
+{
+H2      limitedLinear01 1;
+H       limitedLinear01 1;
+O       limitedLinear01 1;
+O2      limitedLinear01 1;
+OH      limitedLinear01 1;
+H2O     limitedLinear01 1;
+HO2     limitedLinear01 1;
+H2O2    limitedLinear01 1;
+CH      limitedLinear01 1;
+CH2     limitedLinear01 1;
+CH2*    limitedLinear01 1;
+CH3     limitedLinear01 1;
+CH4     limitedLinear01 1;
+CO      limitedLinear01 1;
+CO2     limitedLinear01 1;
+HCO     limitedLinear01 1;
+CH2O    limitedLinear01 1;
+CH3O    limitedLinear01 1;
+C2H2    limitedLinear01 1;
+H2CC    limitedLinear01 1;
+C2H3    limitedLinear01 1;
+C2H4    limitedLinear01 1;
+C2H5    limitedLinear01 1;
+C2H6    limitedLinear01 1;
+HCCO    limitedLinear01 1;
+CH2CO   limitedLinear01 1;
+CH2CHO  limitedLinear01 1;
+CH3CHO  limitedLinear01 1;
+aC3H5   limitedLinear01 1;
+C3H6    limitedLinear01 1;
+nC3H7   limitedLinear01 1;
+N2      limitedLinear01 1;
+C3H8    limitedLinear01 1;
+C4H81   limitedLinear01 1;
+iC3H7   limitedLinear01 1;
+C2H3CHO limitedLinear01 1;
+h       limitedLinear 1;
+};
 }
 
 laplacianSchemes
@@ -52,6 +96,12 @@ interpolationSchemes
 snGradSchemes
 {
     default         corrected;
+}
+
+fluxRequired
+{
+    default         no;
+    p;
 }
 
 
