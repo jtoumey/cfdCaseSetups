@@ -17,18 +17,18 @@ FoamFile
 
 solvers
 {
-    p
+    "(p|rho)"
     {
         solver          GAMG;
-	nCellsInCoarsestLevel 4100;
-	mergeLevels     3;
-	smoother        GaussSeidel;
+        nCellsInCoarsestLevel 4100;
+        mergeLevels     3;
+        smoother        GaussSeidel;
         tolerance       1e-6;
         relTol          0.01;
-	minIter         3;
+        minIter         3;
     }
 
-    pFinal
+    "(p|rho)Final"
     {
         $p;
         relTol          0;
@@ -46,6 +46,21 @@ solvers
     {
         $U;
         relTol          0;
+    }
+}
+
+    Yi
+    {
+        $hFinal;
+    }
+    "(phis|Ysoot|Nsoot)"
+    {
+        $hFinal;
+    }
+    "(phis|Ysoot|Nsoot)Final"
+    {
+        $U;
+        relTol    0;
     }
 }
 
