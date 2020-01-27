@@ -1,0 +1,417 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+
+convertToMeters  1.0;
+
+
+
+vertices
+(
+    (0 0.013 -0.013)
+	(0 -0.013 -0.013)
+	(0 -0.013 0.013)
+	(0 0.013 0.013)
+	(0 0.018384776310850233 -0.01838477631085024)
+	(0 -0.01838477631085024 -0.018384776310850233)
+	(0 -0.018384776310850233 0.018384776310850236)
+	(0 0.018384776310850236 0.018384776310850233)
+	(0.765 0.013 -0.013)
+	(0.765 -0.013 -0.013)
+	(0.765 -0.013 0.013)
+	(0.765 0.013 0.013)
+	(0.765 0.018384776310850233 -0.01838477631085024)
+	(0.765 -0.01838477631085024 -0.018384776310850233)
+	(0.765 -0.018384776310850233 0.018384776310850236)
+	(0.765 0.018384776310850236 0.018384776310850233)
+	(0 0.03783021279348029 -0.0378302127934803)
+	(0 -0.0378302127934803 -0.03783021279348029)
+	(0 -0.03783021279348029 0.0378302127934803)
+	(0 0.0378302127934803 0.03783021279348029)
+	(0.765 0.03783021279348029 -0.0378302127934803)
+	(0.765 -0.0378302127934803 -0.03783021279348029)
+	(0.765 -0.03783021279348029 0.0378302127934803)
+	(0.765 0.0378302127934803 0.03783021279348029)
+	(0 0.15803836559519335 -0.1580383655951934)
+	(0 -0.1580383655951934 -0.15803836559519335)
+	(0 -0.15803836559519335 0.15803836559519338)
+	(0 0.15803836559519338 0.15803836559519335)
+	(0.765 0.15803836559519335 -0.1580383655951934)
+	(0.765 -0.1580383655951934 -0.15803836559519335)
+	(0.765 -0.15803836559519335 0.15803836559519338)
+	(0.765 0.15803836559519338 0.15803836559519335)
+	(1.0 0.018384776310850233 -0.01838477631085024)
+	(1.0 -0.01838477631085024 -0.018384776310850233)
+	(1.0 -0.018384776310850233 0.018384776310850236)
+	(1.0 0.018384776310850236 0.018384776310850233)
+	(1.0 0.03783021279348029 -0.0378302127934803)
+	(1.0 -0.0378302127934803 -0.03783021279348029)
+	(1.0 -0.03783021279348029 0.0378302127934803)
+	(1.0 0.0378302127934803 0.03783021279348029)
+
+);
+
+axialCells 8;
+firstCellFrac 0.72;
+secondCellFrac 0.28;
+firstGrade 1.05;
+secondGrade 1.4;
+
+
+blocks
+(
+	// Bluff body
+	hex ( 1 0 3 2 9 8 11 10)
+	innerSquare
+	(40 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 0 4 7 3 8 12 15 11)
+	bluffBodyCircle0
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 3 7 6 2 11 15 14 10)
+	bluffBodyCircle1
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 2 6 5 1 10 14 13 9)
+	bluffBodyCircle2
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 1 5 4 0 9 13 12 8)
+	bluffBodyCircle3
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	// Inflow boundary
+	hex ( 4 16 19 7 12 20 23 15)
+	inflow0
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 7 19 18 6 15 23 22 14)
+	inflow1
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 6 18 17 5 14 22 21 13)
+	inflow2
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 5 17 16 4 13 21 20 12)
+	inflow3
+	(10 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	// Combustor circumference
+	hex ( 16 24 27 19 20 28 31 23)
+	combustorCircum0
+	(100 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 19 27 26 18 23 31 30 22)
+	combustorCircum1
+	(100 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 18 26 25 17 22 30 29 21)
+	combustorCircum2
+	(100 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	hex ( 17 25 24 16 21 29 28 20)
+	combustorCircum3
+	(100 40 $axialCells)
+    simpleGrading
+    (
+        1
+        1
+        (
+            (0.6 $firstCellFrac $firstGrade)
+            (0.4 $secondCellFrac $secondGrade)
+        )
+    )
+
+	// Constriction channel
+	hex ( 12 20 23 15 32 36 39 35)
+	constrChannel0
+	(10 40 100)
+	simpleGrading (1 1 1)
+
+	hex ( 15 23 22 14 35 39 38 34)
+	constrChannel1
+	(10 40 100)
+	simpleGrading (1 1 1)
+
+	hex ( 14 22 21 13 34 38 37 33)
+	constrChannel2
+	(10 40 100)
+	simpleGrading (1 1 1)
+
+	hex ( 13 21 20 12 33 37 36 32)
+	constrChannel3
+	(10 40 100)
+	simpleGrading (1 1 1)
+
+);
+
+
+edges
+(
+    arc 7 4 ( 0 0.026 0.0)
+	arc 4 5 ( 0 1.5920408388915591e-18 -0.026)
+	arc 5 6 ( 0 -0.026 -3.1840816777831182e-18)
+	arc 6 7 ( 0 -4.776122516674677e-18 0.026)
+	arc 15 12 ( 0.765 0.026 0.0)
+	arc 12 13 ( 0.765 1.5920408388915591e-18 -0.026)
+	arc 13 14 ( 0.765 -0.026 -3.1840816777831182e-18)
+	arc 14 15 ( 0.765 -4.776122516674677e-18 0.026)
+	arc 3 0 ( 0 0.014949999999999998 0.0)
+	arc 0 1 ( 0 0.0 -0.014949999999999998)
+	arc 1 2 ( 0 -0.014949999999999998 0.0)
+	arc 2 3 ( 0 0.0 0.014949999999999998)
+	arc 11 8 ( 0.765 0.014949999999999998 0.0)
+	arc 8 9 ( 0.765 0.0 -0.014949999999999998)
+	arc 9 10 ( 0.765 -0.014949999999999998 0.0)
+	arc 10 11 ( 0.765 0.0 0.014949999999999998)
+	arc 19 16 ( 0 0.0535 0.0)
+	arc 16 17 ( 0 3.27593018771917e-18 -0.0535)
+	arc 17 18 ( 0 -0.0535 -6.55186037543834e-18)
+	arc 18 19 ( 0 -9.82779056315751e-18 0.0535)
+	arc 23 20 ( 0.765 0.0535 0.0)
+	arc 20 21 ( 0.765 3.27593018771917e-18 -0.0535)
+	arc 21 22 ( 0.765 -0.0535 -6.55186037543834e-18)
+	arc 22 23 ( 0.765 -9.82779056315751e-18 0.0535)
+	arc 27 24 ( 0 0.2235 0.0)
+	arc 24 25 ( 0 1.3685427980471673e-17 -0.2235)
+	arc 25 26 ( 0 -0.2235 -2.7370855960943345e-17)
+	arc 26 27 ( 0 -4.1056283941415015e-17 0.2235)
+	arc 31 28 ( 0.765 0.2235 0.0)
+	arc 28 29 ( 0.765 1.3685427980471673e-17 -0.2235)
+	arc 29 30 ( 0.765 -0.2235 -2.7370855960943345e-17)
+	arc 30 31 ( 0.765 -4.1056283941415015e-17 0.2235)
+	arc 35 32 ( 1.0 0.026 0.0)
+	arc 32 33 ( 1.0 1.5920408388915591e-18 -0.026)
+	arc 33 34 ( 1.0 -0.026 -3.1840816777831182e-18)
+	arc 34 35 ( 1.0 -4.776122516674677e-18 0.026)
+	arc 39 36 ( 1.0 0.0535 0.0)
+	arc 36 37 ( 1.0 3.27593018771917e-18 -0.0535)
+	arc 37 38 ( 1.0 -0.0535 -6.55186037543834e-18)
+	arc 38 39 ( 1.0 -9.82779056315751e-18 0.0535)
+);
+
+boundary
+(
+
+    combustorInlet
+    {
+        type patch;
+        faces
+        (
+            (7 19 16 4)
+            (4 16 17 5)
+            (5 17 18 6)
+            (6 18 19 7)
+        );
+    }
+
+    combustorOutlet
+    {
+        type patch;
+        faces
+        (
+            (35 39 36 32)
+            (32 36 37 33)
+            (33 37 38 34)
+            (34 38 39 35)
+        );
+    }
+
+    combustorWall
+    {
+        type wall;
+        faces
+        (
+            // Combustor circumference walls
+            (24 27 31 28)
+            (25 24 28 29)
+            (26 25 29 30)
+            (27 26 30 31)
+        );
+    }
+
+    combustorFrontWall
+    {
+        type wall;
+        faces
+        (
+            // Combustor front wall
+            // Inner radius
+            (3 0 1 2)
+            (3 7 4 0)
+            (2 6 7 3)
+            (1 5 6 2)
+            (0 4 5 1)
+
+            // Outer radius
+            (19 27 24 16)
+            (16 24 25 17)
+            (17 25 26 18)
+            (18 26 27 19)
+        );
+    }
+
+    combustorExitWall
+    {
+        type wall;
+        faces
+        (
+            // Combustor exit wall
+            (23 31 28 20)
+            (20 28 29 21)
+            (21 29 30 22)
+            (22 30 31 23)
+        );
+    }
+
+    constrictionChannel
+    {
+        type wall;
+        faces
+        (
+            // Constriction channel outer walls
+            (20 23 39 36)
+            (21 20 36 37)
+            (22 21 37 38)
+            (23 22 38 39)
+
+            // Constriction channel inner walls
+            (12 15 35 32)
+            (13 12 32 33)
+            (14 13 33 34)
+            (15 14 34 35)
+
+            // Constriction channel bluff body
+            (11 8 9 10)
+            (11 15 12 8)
+            (8 12 13 9)
+            (9 13 14 10)
+            (10 14 15 11)
+        );
+    }
+);
+mergePatchPairs
+(
+);

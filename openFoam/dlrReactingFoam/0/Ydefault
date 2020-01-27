@@ -1,0 +1,63 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      Ydefault;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField            //Ydefault is mass fractions of all other species other than O2, N2, fuel ... ie) CH4, C7H16 that appear in the reactions
+{
+    combustorInlet
+    {
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+
+    combustorOutlet
+    {
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+
+    combustorWall
+    {
+        type            fixedValue;
+        value		    uniform 0;
+    }
+
+    combustorFrontWall
+    {
+        type            fixedValue;
+	    value	     	uniform 0;
+    }
+
+    combustorExitWall
+    {
+        type            fixedValue;
+	    value	     	uniform 0;
+    }
+
+    constrictionChannel
+    {
+        type            fixedValue;
+	    value	     	uniform 0;
+    }
+}
+
+// ************************************************************************* //

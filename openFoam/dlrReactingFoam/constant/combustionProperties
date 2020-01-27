@@ -1,0 +1,49 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      combustionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//combustionModel  infinitelyFastChemistry<psiThermoCombustion,gasHThermoPhysics>;
+combustionModel  PaSR<psiChemistryCombustion>;
+
+active  true;
+
+//infinitelyFastChemistryCoeffs
+//{
+//    semiImplicit no;
+//    C           5.0;
+//}
+
+PaSRCoeffs
+{
+    Cmix                1;
+    turbulentReaction   on;
+    useReactionRate	yes;
+}
+
+ignite off;
+
+ignitionSites
+(
+    {
+        location (1.53e-0 0.00 2.0e-3);
+        diameter 16.0e-3;
+        start 5.0;
+        duration 2.50;
+        strength 0.05;
+    }
+);
+
+//******************************************************//

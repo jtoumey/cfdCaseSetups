@@ -1,0 +1,66 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      sootProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+sootModel  twoEquation;
+
+doSootFeedBack true;
+
+diffusionOn true;
+
+odeCoeffs
+{
+    solver          seulex; //SIBS; // seulex; // Rosenbrock34;
+    eps             0.05;
+    scale	    1;
+    absTol          1e-8; //1.0e-12;
+    relTol          1e-03; //1.0e-04;
+}
+
+noSootCoeffs
+{
+}
+
+MOMICCoeffs
+{
+    printSourceTerms       false;
+    scaleOn	           false;
+    nucleationOn	    true;
+    simpleNucleation 	    true;
+    nucleationFactor         1.0;
+    surfaceOn		    true;
+    radicalsConserved      false;
+    stericFactor	     1.0;
+    oxidationFactor          1.0;
+    surfaceGrowthFactor      1.0;
+    condensationOn         false;
+    condensationFactor       0.0;
+    coagulationOn	    true;
+    pyrene                    A4;
+}
+
+twoEquationCoeffs
+{
+    printSourceTerms   false;
+    nucleationOn        true;
+    nucleationFactor     1.0;
+    surfaceOn	        true;
+    surfaceGrowthFactor  1.0;
+    oxidationFactor      1.0;
+    coagulationOn       true;
+}
+
+// ************************************************************************* //
