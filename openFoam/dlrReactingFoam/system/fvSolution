@@ -47,16 +47,17 @@ solvers
         $U;
         relTol          0;
     }
-}
 
     Yi
     {
         $hFinal;
     }
+
     "(phis|Ysoot|Nsoot)"
     {
         $hFinal;
     }
+
     "(phis|Ysoot|Nsoot)Final"
     {
         $U;
