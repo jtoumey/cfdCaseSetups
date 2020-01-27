@@ -48,11 +48,11 @@ runTimeModifiable true;
 adjustTimeStep  no;
 
 maxCo           1.0;
-// 
-// libs
-// (
-//     "libinflowgenerator.so"
-// );
+ 
+libs
+(
+        "libinflowgenerator.so"
+);
 
 functions
 {
