@@ -2,13 +2,12 @@
 #SBATCH -J dlrOf_rP
 #SBATCH -o dlrOf_rP.o%j
 #SBATCH -e dlrOf_rP.e%j
-#####SBATCH --exclusive
-#SBATCH --partition=generalsky  #general_requeue #HaswellPriority #general     #allow 12 hours and parallel works
+##SBATCH --exclusive
+#SBATCH --partition=generalsky
 #SBATCH --ntasks=1              
 #SBATCH --nodes=1
 #SBATCH --time 12:00:00      
 #SBATCH --mail-user=julian.toumey@uconn.edu
 #SBATCH --mail-type=begin  
 #SBATCH --mail-type=end   
-srun reconstructPar -newTimes  #-latestTime # '0.01'    # '0.03,0.04,0.05,0.06,0.07' #-latestTime
-#srun reconstructPar -newTimes  # run the MPI executable named a.out
+srun reconstructPar -newTimes  #-latestTime # '0.01'    # '0.03,0.04,0.05,0.06,0.07'

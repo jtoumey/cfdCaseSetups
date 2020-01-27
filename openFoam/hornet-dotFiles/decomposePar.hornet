@@ -2,7 +2,7 @@
 #SBATCH -J dlrOf_dP				# job name
 #SBATCH -o dlrOf_dP.o%j				# output and error file name (%j expands to jobID)
 #SBATCH -e dlrOf_dP.e%j				# output and error file name (%j expands to jobID)
-#######SBATCH --exclusive				# exclusive mod
+##SBATCH --exclusive				# exclusive mod
 #SBATCH --partition=generalsky			# allow 12 hours and parallel works
 #SBATCH --ntasks=1				# Number of mpi tasks (CPU cores) requested - 192 max
 #SBATCH --nodes=1				# 24 ntasks per node so ntasks/24 for optimal performance
