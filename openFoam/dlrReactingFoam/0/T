@@ -16,44 +16,46 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 294;
+simTemperature 300;
+
+internalField   uniform $simTemperature;
 
 boundaryField
 {
     combustorInlet
     {
         type            fixedValue;
-        value           uniform 294;
+        value           uniform $simTemperature;
     }
 
     combustorOutlet
     {
         type            fixedValue;
-        value           uniform 294;
+        value           uniform $simTemperature;
     }
 
     combustorWall
     {
         type            fixedValue;
-        value           uniform 294;
+        value           uniform $simTemperature;
     }
 
     combustorFrontWall
     {
         type            fixedValue;
-        value           uniform 294;
+        value           uniform $simTemperature;
     }
 
     combustorExitWall
     {
         type            fixedValue;
-        value           uniform 294;
+        value           uniform $simTemperature;
     }
 
     constrictionChannel
     {
         type            fixedValue;
-        value           uniform 294;
+        value           uniform $simTemperature;
     }
 }
 
