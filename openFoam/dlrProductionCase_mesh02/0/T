@@ -1,0 +1,60 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 294;
+
+boundaryField
+{
+    combustorInlet
+    {
+        type            fixedValue;
+        value           uniform 294;
+    }
+
+    combustorOutlet
+    {
+        type            fixedValue;
+        value           uniform 294;
+    }
+
+    combustorWall
+    {
+        type            fixedValue;
+        value           uniform 294;
+    }
+
+    combustorFrontWall
+    {
+        type            fixedValue;
+        value           uniform 294;
+    }
+
+    combustorExitWall
+    {
+        type            fixedValue;
+        value           uniform 294;
+    }
+
+    constrictionChannel
+    {
+        type            fixedValue;
+        value           uniform 294;
+    }
+}
+
+// ************************************************************************* //
