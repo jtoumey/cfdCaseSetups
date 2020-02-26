@@ -69,8 +69,9 @@ secondCellFrac 0.28;
 firstGrade 1.05;
 secondGrade 1.4;
 
-circCells 40;
+circCells 48;
 radialCells 10;
+radialCellsInfl 32;
 
 blocks
 (
@@ -143,7 +144,7 @@ blocks
 	// Inflow boundary
 	hex ( 4 16 19 7 12 20 23 15)
 	inflow0
-	($radialCells $circCells $axialCells)
+	($radialCellsInfl $circCells $axialCells)
     simpleGrading
     (
         1
@@ -156,7 +157,7 @@ blocks
 
 	hex ( 7 19 18 6 15 23 22 14)
 	inflow1
-	($radialCells $circCells $axialCells)
+	($radialCellsInfl $circCells $axialCells)
     simpleGrading
     (
         1
@@ -169,7 +170,7 @@ blocks
 
 	hex ( 6 18 17 5 14 22 21 13)
 	inflow2
-	($radialCells $circCells $axialCells)
+	($radialCellsInfl $circCells $axialCells)
     simpleGrading
     (
         1
@@ -182,7 +183,7 @@ blocks
 
 	hex ( 5 17 16 4 13 21 20 12)
 	inflow3
-	($radialCells $circCells $axialCells)
+	($radialCellsInfl $circCells $axialCells)
     simpleGrading
     (
         1
@@ -249,22 +250,22 @@ blocks
 	// Constriction channel
 	hex ( 12 20 23 15 32 36 39 35)
 	constrChannel0
-	($radialCells $circCells 100)
+	($radialCellsInfl $circCells 100)
 	simpleGrading (1 1 1)
 
 	hex ( 15 23 22 14 35 39 38 34)
 	constrChannel1
-	($radialCells $circCells 100)
+	($radialCellsInfl $circCells 100)
 	simpleGrading (1 1 1)
 
 	hex ( 14 22 21 13 34 38 37 33)
 	constrChannel2
-	($radialCells $circCells 100)
+	($radialCellsInfl $circCells 100)
 	simpleGrading (1 1 1)
 
 	hex ( 13 21 20 12 33 37 36 32)
 	constrChannel3
-	($radialCells $circCells 100)
+	($radialCellsInfl $circCells 100)
 	simpleGrading (1 1 1)
 
 );
