@@ -19,7 +19,7 @@ simulationType  LES;
 
 LES
 {
-    LESModel        Smagorinsky;
+    LESModel        kEqn;
 
     turbulence      on;
 
@@ -27,16 +27,49 @@ LES
 
     delta           cubeRootVol;
 
-    SmagorinskyCoeffs
-    {
-    //  Ce
-    //  Ck
-        Prt        0.9;   //momentum diffusivity / thermal diffusivity = kinematic viscosity / alpha   ---> Prandtl # used to find thermal diffusivity since
-    }
-
     cubeRootVolCoeffs
     {
         deltaCoeff      1;
+    }
+
+    PrandtlCoeffs
+    {
+        delta           cubeRootVol;
+        cubeRootVolCoeffs
+        {
+            deltaCoeff      1;
+        }
+
+        smoothCoeffs
+        {
+            delta           cubeRootVol;
+            cubeRootVolCoeffs
+            {
+                deltaCoeff      1;
+            }
+
+            maxDeltaRatio   1.1;
+        }
+
+        Cdelta          0.158;
+    }
+
+    vanDriestCoeffs
+    {
+        delta           cubeRootVol;
+        cubeRootVolCoeffs
+        {
+            deltaCoeff      1;
+        }
+
+        smoothCoeffs
+        {
+            delta           cubeRootVol;
+            cubeRootVolCoeffs
+            {
+                deltaCoeff      1;
+            }
+	}
     }
 }
 
