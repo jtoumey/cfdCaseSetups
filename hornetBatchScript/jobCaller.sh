@@ -13,7 +13,7 @@ do
   echo "Job num: $ii"
   
   # /bin/bash jobscr.sh
-  currentJob=$(/bin/bash $jobScriptName)
+  currentJob=$(sbatch $jobScriptName)
 
   echo $currentJob
   currentJob=${currentJob//[^0-9]/}
