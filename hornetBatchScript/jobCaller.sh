@@ -19,7 +19,7 @@ do
   currentJob=${currentJob//[^0-9]/}
   echo $currentJob
   # Note the double quotes
-  sed -i -e "s/afterany:.*/afterany:=$currentJob/" $jobScriptName
+  sed -i -e "s/afterany:.*/afterany:$currentJob/" $jobScriptName
 
   ii=$(($ii + 1))
 done
