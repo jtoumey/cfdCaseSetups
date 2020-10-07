@@ -80,6 +80,7 @@ log.*
 **/VTK
 *.OpenFOAM
 *.blockMesh
+**/postProcessing
 
 # OpenFOAM Blockmesh
 **/polyMesh
