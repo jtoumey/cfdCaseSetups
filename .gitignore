@@ -70,3 +70,9 @@ doc/Doxygen/DTAGS
 /.dir-locals.el
 # Ignore the test directory
 /tutorialsTest
+
+# Log files
+log.*
+
+# Post-processing files
+*.foam
