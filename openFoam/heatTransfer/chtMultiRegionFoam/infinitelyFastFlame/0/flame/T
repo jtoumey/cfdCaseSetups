@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/flame";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [ 0 0 0 1 0 0 0 ];
+
+internalField   uniform 660;
+
+boundaryField
+{
+    maxY
+    {
+        type            zeroGradient;
+    }
+    maxX
+    {
+        type            zeroGradient;
+        value           uniform 300;
+    }
+    minY
+    {
+        type            zeroGradient;
+    }
+    minZ
+    {
+        type            zeroGradient;
+    }
+    maxZ
+    {
+        type            zeroGradient;
+    }
+    flame_to_solid
+    {
+        type            compressible::turbulentTemperatureCoupledBaffleMixed;
+        value           uniform 655;
+        Tnbr            T;
+        kappaMethod     fluidThermo;
+    }
+    minX
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

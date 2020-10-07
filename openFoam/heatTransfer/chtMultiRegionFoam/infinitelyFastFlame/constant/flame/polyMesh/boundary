@@ -1,0 +1,66 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/flame/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    maxY
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          50;
+        startFace       49;
+    }
+    maxX
+    {
+        type            patch;
+        nFaces          1;
+        startFace       99;
+    }
+    minY
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          50;
+        startFace       100;
+    }
+    minZ
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          50;
+        startFace       150;
+    }
+    maxZ
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          50;
+        startFace       200;
+    }
+    flame_to_solid
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          1;
+        startFace       250;
+        sampleMode      nearestPatchFace;
+        sampleRegion    solid;
+        samplePatch     solid_to_flame;
+    }
+)
+
+// ************************************************************************* //
