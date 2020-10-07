@@ -23,7 +23,8 @@ boundaryField
 {
     maxY
     {
-        type            empty;
+        type            calculated;
+        value           uniform 100000;
     }
     minX
     {
@@ -32,15 +33,18 @@ boundaryField
     }
     minY
     {
-        type            empty;
+        type            calculated;
+        value           uniform 100000;
     }
     minZ
     {
-        type            empty;
+        type            calculated;
+        value           uniform 100000;
     }
     maxZ
     {
-        type            empty;
+        type            calculated;
+        value           uniform 100000;
     }
     solid_to_flame
     {

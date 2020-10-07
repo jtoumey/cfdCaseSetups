@@ -28,9 +28,8 @@ boundaryField
     }
     maxX
     {
-        type            inletOutlet;
-        value           uniform ( 0 0 0 );
-        inletValue      uniform ( 0 0 0 );
+        type            fixedValue value uniform ( 0 0 0 );
+        value           uniform ( 0.01 0 0 );
     }
     minY
     {

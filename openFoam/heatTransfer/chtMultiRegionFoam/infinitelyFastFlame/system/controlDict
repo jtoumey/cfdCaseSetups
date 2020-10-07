@@ -50,7 +50,7 @@ maxCo           0.6;
 // Maximum diffusion number
 maxDi           10.0;
 
-adjustTimeStep  yes;
+adjustTimeStep  no;
 
 functions
 {

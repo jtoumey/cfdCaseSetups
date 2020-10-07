@@ -23,24 +23,28 @@ boundaryField
 {
     maxY
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform 660;
     }
     maxX
     {
-        type            zeroGradient;
-        value           uniform 300;
+        type            fixedValue;
+        value           uniform 660;
     }
     minY
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform 660;
     }
     minZ
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform 660;
     }
     maxZ
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform 660;
     }
     flame_to_solid
     {
@@ -48,10 +52,6 @@ boundaryField
         value           uniform 655;
         Tnbr            T;
         kappaMethod     fluidThermo;
-    }
-    minX
-    {
-        type            zeroGradient;
     }
 }
 

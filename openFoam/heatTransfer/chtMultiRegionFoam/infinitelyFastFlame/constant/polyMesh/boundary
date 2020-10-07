@@ -19,8 +19,8 @@ FoamFile
 (
     maxY
     {
-        type            empty;
-        inGroups        1(empty);
+        type            wall;
+        inGroups        1(wall);
         nFaces          100;
         startFace       99;
     }
@@ -38,22 +38,22 @@ FoamFile
     }
     minY
     {
-        type            empty;
-        inGroups        1(empty);
+        type            wall;
+        inGroups        1(wall);
         nFaces          100;
         startFace       201;
     }
     minZ
     {
-        type            empty;
-        inGroups        1(empty);
+        type            wall;
+        inGroups        1(wall);
         nFaces          100;
         startFace       301;
     }
     maxZ
     {
-        type            empty;
-        inGroups        1(empty);
+        type            wall;
+        inGroups        1(wall);
         nFaces          100;
         startFace       401;
     }

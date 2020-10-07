@@ -32,8 +32,7 @@ U
         }
         maxX
         {
-            type            inletOutlet;
-            inletValue      uniform (0 0 0);
+			type			fixedValue
             value           uniform (0 0 0);
         }
     }
@@ -47,16 +46,8 @@ T
     {
         ".*"
         {
-            type            zeroGradient;
-        }
-
-        minX
-        {
-            type            zeroGradient;
-        }
-        maxX
-        {
-			type			zeroGradient;
+            type            fixedValue;
+			value			uniform 660;
         }
 
         "flame_to_.*"

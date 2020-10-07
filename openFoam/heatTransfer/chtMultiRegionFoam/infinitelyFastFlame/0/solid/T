@@ -24,6 +24,7 @@ boundaryField
     maxY
     {
         type            zeroGradient;
+        value           uniform 300;
     }
     minX
     {
@@ -33,14 +34,17 @@ boundaryField
     minY
     {
         type            zeroGradient;
+        value           uniform 300;
     }
     minZ
     {
         type            zeroGradient;
+        value           uniform 300;
     }
     maxZ
     {
         type            zeroGradient;
+        value           uniform 300;
     }
     solid_to_flame
     {
