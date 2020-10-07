@@ -76,3 +76,7 @@ log.*
 
 # Post-processing files
 *.foam
+
+# OpenFOAM Blockmesh
+/polyMesh/*
+!boundaryData
