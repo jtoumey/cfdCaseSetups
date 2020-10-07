@@ -23,7 +23,7 @@ done
 
 
 #-- Run on single processor
-#runApplication `getApplication`
+runApplication `getApplication`
 
 # Decompose
 #runApplication decomposePar -allRegions
@@ -38,6 +38,13 @@ done
 echo
 echo "creating files for paraview post-processing"
 echo
-#paraFoam -touchAll
+paraFoam -touchAll
 
+echo
+echo "Converting output to VTK..."
+echo
+for i in flame solid
+do
+	foamToVTK -region $i
+done
 #------------------------------------------------------------------------------
