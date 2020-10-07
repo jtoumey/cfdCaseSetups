@@ -41,7 +41,7 @@ T
             type            compressible::turbulentTemperatureCoupledBaffleMixed;
             Tnbr            T;
             kappaMethod     solidThermo;
-            value           uniform 655;
+            value           uniform 650;
         }
     }
 }

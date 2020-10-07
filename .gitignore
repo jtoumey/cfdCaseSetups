@@ -78,5 +78,5 @@ log.*
 *.foam
 
 # OpenFOAM Blockmesh
-/polyMesh/*
+**/polyMesh
 !boundaryData

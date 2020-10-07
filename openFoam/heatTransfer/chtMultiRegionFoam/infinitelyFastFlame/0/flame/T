@@ -49,7 +49,7 @@ boundaryField
     flame_to_solid
     {
         type            compressible::turbulentTemperatureCoupledBaffleMixed;
-        value           uniform 655;
+        value           uniform 660;
         Tnbr            T;
         kappaMethod     fluidThermo;
     }

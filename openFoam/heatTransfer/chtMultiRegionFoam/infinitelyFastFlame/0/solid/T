@@ -49,7 +49,7 @@ boundaryField
     solid_to_flame
     {
         type            compressible::turbulentTemperatureCoupledBaffleMixed;
-        value           uniform 655;
+        value           uniform 650;
         Tnbr            T;
         kappaMethod     solidThermo;
     }
