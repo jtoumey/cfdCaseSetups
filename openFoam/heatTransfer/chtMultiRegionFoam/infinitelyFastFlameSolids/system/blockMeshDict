@@ -1,0 +1,104 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+xDimP 5;
+yDimP 0.05;
+zDimP 0.05;
+
+xDimM -5;
+yDimM -0.05;
+zDimM -0.05;
+
+vertices
+(
+    ($xDimM  $yDimM  $zDimM)
+    ($xDimP  $yDimM  $zDimM)
+    ($xDimP  $yDimP  $zDimM)
+    ($xDimM  $yDimP  $zDimM)
+    ($xDimM  $yDimM  $zDimP)
+    ($xDimP  $yDimM  $zDimP)
+    ($xDimP  $yDimP  $zDimP)
+    ($xDimM  $yDimP  $zDimP)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (2000 1 1) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    maxY
+    {
+        type wall;
+        faces
+        (
+            (3 7 6 2)
+        );
+    }
+    minX
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+    maxX
+    {
+        type patch;
+        faces
+        (
+            (2 6 5 1)
+        );
+    }
+    minY
+    {
+        type wall;
+        faces
+        (
+            (1 5 4 0)
+        );
+    }
+    minZ
+    {
+        type wall;
+        faces
+        (
+            (0 3 2 1)
+        );
+    }
+    maxZ
+    {
+        type wall;
+        faces
+        (
+            (4 5 6 7)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //
