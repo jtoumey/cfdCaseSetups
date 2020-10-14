@@ -17,9 +17,9 @@ FoamFile
 
 actions
 (
-    // solid1
+    // solid
     {
-        name    solid1CellSet;
+        name    solidCellSet;
         type    cellSet;
         action  new;
         source  boxToCell;
@@ -29,40 +29,40 @@ actions
         }
     }
     {
-        name    solid1;
+        name    solid;
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
         sourceInfo
         {
-            set solid1CellSet;
+            set solidCellSet;
         }
     }
 
-    // solid2 is all the other cells
+    // fluid is all the other cells
     {
-        name    solid2CellSet;
+        name    fluidCellSet;
         type    cellSet;
         action  new;
         source  cellToCell;
         sourceInfo
         {
-            set solid1CellSet;
+            set solidCellSet;
         }
     }
     {
-        name    solid2CellSet;
+        name    fluidCellSet;
         type    cellSet;
         action  invert;
     }
     {
-        name    solid2;
+        name    fluid;
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
         sourceInfo
         {
-            set solid2CellSet;
+            set fluidCellSet;
         }
     }
 );
