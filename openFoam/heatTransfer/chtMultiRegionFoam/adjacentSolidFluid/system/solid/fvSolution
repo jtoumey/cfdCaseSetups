@@ -32,14 +32,6 @@ solvers
     }
 }
 
-relaxationFactors
-{
-    equations
-    {
-        ".*"  1;
-    }
-}
-
 PIMPLE
 {
     nNonOrthogonalCorrectors 0;

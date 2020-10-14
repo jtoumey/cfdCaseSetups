@@ -7,10 +7,10 @@ cd ${0%/*} || exit 1    # Run from this directory
 cleanCase
 rm -rf VTK
 rm -rf constant/cellToRegion constant/polyMesh/sets
-rm -rf 0/flame
+rm -rf 0/fluid
 rm -rf 0/solid
 rm -f 0/cellToRegion
-rm -rf constant/flame/polyMesh
+rm -rf constant/fluid/polyMesh
 rm -rf constant/solid/polyMesh
 
 #------------------------------------------------------------------------------

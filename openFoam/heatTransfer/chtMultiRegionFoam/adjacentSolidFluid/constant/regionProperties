@@ -17,8 +17,8 @@ FoamFile
 
 regions
 (
-    fluid       ()
-    solid       (solid1 solid2)
+    fluid       (fluid)
+    solid       (solid)
 );
 
 // ************************************************************************* //

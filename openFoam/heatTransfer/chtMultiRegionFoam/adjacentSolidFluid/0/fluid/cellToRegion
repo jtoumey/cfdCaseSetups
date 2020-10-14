@@ -10,43 +10,38 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "0/solid1";
-    object      k;
+    location    "0/fluid";
+    object      cellToRegion;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [0 0 0 0 0 0 0];
 
-internalField   uniform 0.1;
+internalField   uniform 1;
 
 boundaryField
 {
     minX
     {
-        type            calculated;
-        value           uniform 0.1;
+        type            zeroGradient;
     }
     maxX
     {
-        type            calculated;
-        value           uniform 0.1;
+        type            zeroGradient;
     }
     minY
     {
-        type            calculated;
-        value           uniform 0.1;
+        type            zeroGradient;
     }
     maxY
     {
-        type            calculated;
-        value           uniform 0.1;
+        type            zeroGradient;
     }
-    minZ
+    maxZ
     {
-        type            calculated;
-        value           uniform 0.1;
+        type            zeroGradient;
     }
-    solid1_to_solid2
+    fluid_to_solid
     {
         type            calculated;
         value           uniform 0;

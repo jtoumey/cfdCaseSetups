@@ -9,51 +9,12 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      changeDictionaryDict;
+    class       uniformDimensionedVectorField;
+    object      g;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-/*
-boundary
-{
-    minZ
-    {
-        type            patch;
-    }
-    maxZ
-    {
-        type            patch;
-    }
-}
-*/
-
-T
-{
-    internalField   uniform 650;
-
-    boundaryField
-    {
-		/*
-		minX
-		{
-			type			fixedValue;
-			value			uniform 650;
-		}
-		*/
-        ".*"
-        {
-            type            fixedValue;
-			value			$internalField;
-        }
-        solid1_to_solid2
-        {
-            type            compressible::turbulentTemperatureCoupledBaffleMixed;
-            Tnbr            T;
-            kappaMethod     solidThermo;
-            value           uniform 650;
-        }
-    }
-}
+dimensions      [0 1 -2 0 0 0 0];
+value           (0 -9.81 0);
 
 // ************************************************************************* //

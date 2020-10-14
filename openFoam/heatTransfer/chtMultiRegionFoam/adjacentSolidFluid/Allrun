@@ -16,7 +16,7 @@ do
 done
 
 
-for i in solid1 solid2
+for i in solid fluid
 do
    runApplication -s $i changeDictionary -region $i
 done
@@ -40,11 +40,11 @@ runApplication `getApplication`
 #echo
 #paraFoam -touchAll
 
-echo
-echo "Converting output to VTK..."
-echo
-for i in solid1 solid2
-do
-	foamToVTK -region $i
-done
+#echo
+#echo "Converting output to VTK..."
+#echo
+#for i in solid fluid
+#do
+#	foamToVTK -region $i
+#done
 #------------------------------------------------------------------------------

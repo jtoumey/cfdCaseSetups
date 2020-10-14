@@ -10,30 +10,37 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      changeDictionaryDict;
+	location	"fluid/thermophysicalProperties";
+    object      thermophysicalProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-
-T
+thermoType
 {
-    internalField   uniform 1800;
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
 
-    boundaryField
+mixture
+{
+    specie
     {
-        ".*"
-        {
-			type			fixedValue;
-			value			$internalField;
-        }
-
-        "solid2_to_.*"
-        {
-            type            compressible::turbulentTemperatureCoupledBaffleMixed;
-            Tnbr            T;
-            kappaMethod     solidThermo;
-			value           $internalField;
-        }
+        molWeight       28.9;
+    }
+    thermodynamics
+    {
+        Cp              1162.2;
+        Hf              0;
+    }
+    transport
+    {
+        mu              1.8e-05;
+        Pr              0.7;
     }
 }
 

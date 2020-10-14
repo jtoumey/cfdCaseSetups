@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  5.x                                   |
+|  \\    /   O peration     | Version:  5                                     |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,44 +9,51 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    location    "0/solid2";
-    object      cellToRegion;
+    class       dictionary;
+    object      changeDictionaryDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 0 0 0 0];
-
-internalField   uniform 1;
-
-boundaryField
+/*
+boundary
 {
-    minX
+    minZ
     {
-        type            zeroGradient;
-    }
-    maxX
-    {
-        type            zeroGradient;
-    }
-    minY
-    {
-        type            zeroGradient;
-    }
-    maxY
-    {
-        type            zeroGradient;
+        type            patch;
     }
     maxZ
     {
-        type            zeroGradient;
-    }
-    solid2_to_solid1
-    {
-        type            calculated;
-        value           uniform 0;
+        type            patch;
     }
 }
+*/
 
+T
+{
+    internalField   uniform 650;
+
+    boundaryField
+    {
+		/*
+		minX
+		{
+			type			fixedValue;
+			value			uniform 650;
+		}
+		*/
+        ".*"
+        {
+            type            fixedValue;
+			value			$internalField;
+        }
+        "solid_to_.*"
+        {
+            type            compressible::turbulentTemperatureCoupledBaffleMixed;
+            Tnbr            T;
+            kappaMethod     solidThermo;
+            value           uniform 650;
+        }
+    }
+}
 
 // ************************************************************************* //

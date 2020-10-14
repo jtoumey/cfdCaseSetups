@@ -54,8 +54,8 @@ adjustTimeStep  yes;
 
 functions
 {
-	#includeFunc singleGraph1
-	#includeFunc singleGraph2
+	//	#includeFunc singleGraph1
+	//#includeFunc singleGraph2
 }
 
 // ************************************************************************* //
