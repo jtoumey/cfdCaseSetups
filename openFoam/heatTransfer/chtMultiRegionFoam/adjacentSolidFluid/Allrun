@@ -40,11 +40,11 @@ runApplication `getApplication`
 #echo
 #paraFoam -touchAll
 
-#echo
-#echo "Converting output to VTK..."
-#echo
-#for i in solid fluid
-#do
-#	foamToVTK -region $i
-#done
+echo
+echo "Converting output to VTK..."
+echo
+for i in solid fluid
+do
+	foamToVTK -region $i
+done
 #------------------------------------------------------------------------------

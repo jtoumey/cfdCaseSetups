@@ -24,6 +24,10 @@ U
         {
             type            noSlip;
         }
+		maxZ
+		{
+			type			zeroGradient;
+		}
         minX
         {
             type            fixedValue;

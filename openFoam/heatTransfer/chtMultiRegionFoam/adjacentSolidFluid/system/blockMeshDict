@@ -31,14 +31,14 @@ vertices
 
 blocks
 (
-    hex (0 1 2 3 4 5 6 7) (10 5 40)
+    hex (0 1 2 3 4 5 6 7) (20 5 50)
 	simpleGrading
 	(
 		1				// x-direction expansion ratio
 		1				// y-direction expansion ratio
 		(
-			(0.5 0.25 1)	// solid1: 50% z-dir, 50% cells, expansion = 1
-			(0.5 0.75 2.0) // fluid:  50% z-dir, 50% cells, expansion = 4
+			(0.5 0.20 1)	// solid1: 50% z-dir, 50% cells, expansion = 1
+			(0.5 0.80 2.0)  // fluid:  50% z-dir, 50% cells, expansion = 4
 		)
 	)
 );
