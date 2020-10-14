@@ -15,41 +15,41 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [ 1 -1 -2 0 0 0 0 ];
+dimensions      [1 -1 -2 0 0 0 0];
 
 internalField   uniform 100000;
 
 boundaryField
 {
-    maxY
+    minX
     {
-        type            fixedFluxPressure;
+        type            calculated;
         value           uniform 100000;
     }
     maxX
     {
-        type            fixedValue;
+        type            calculated;
         value           uniform 100000;
     }
     minY
     {
-        type            fixedFluxPressure;
+        type            calculated;
         value           uniform 100000;
     }
-    minZ
+    maxY
     {
-        type            fixedFluxPressure;
+        type            calculated;
         value           uniform 100000;
     }
     maxZ
     {
-        type            fixedFluxPressure;
+        type            calculated;
         value           uniform 100000;
     }
     solid2_to_solid1
     {
-        type            fixedFluxPressure;
-        value           uniform 100000;
+        type            calculated;
+        value           uniform 0;
     }
 }
 

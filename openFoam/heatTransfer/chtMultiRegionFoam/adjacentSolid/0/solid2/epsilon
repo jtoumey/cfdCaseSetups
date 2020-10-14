@@ -15,47 +15,41 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [ 0 2 -3 0 0 0 0 ];
+dimensions      [0 2 -3 0 0 0 0];
 
 internalField   uniform 0.01;
 
 boundaryField
 {
-    maxY
+    minX
     {
-        type            epsilonWallFunction;
+        type            calculated;
         value           uniform 0.01;
     }
     maxX
     {
-        type            inletOutlet;
+        type            calculated;
         value           uniform 0.01;
-        inletValue      uniform 0.01;
     }
     minY
     {
-        type            epsilonWallFunction;
+        type            calculated;
         value           uniform 0.01;
     }
-    minZ
+    maxY
     {
-        type            epsilonWallFunction;
+        type            calculated;
         value           uniform 0.01;
     }
     maxZ
     {
-        type            epsilonWallFunction;
+        type            calculated;
         value           uniform 0.01;
     }
     solid2_to_solid1
     {
-        type            epsilonWallFunction;
-        value           uniform 0.01;
-    }
-    minX
-    {
-        type            fixedValue;
-        value           uniform 0.01;
+        type            calculated;
+        value           uniform 0;
     }
 }
 

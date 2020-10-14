@@ -21,35 +21,35 @@ internalField   uniform 650;
 
 boundaryField
 {
-    maxY
-    {
-        type            zeroGradient;
-        value           uniform 300;
-    }
     minX
     {
         type            fixedValue;
-        value           uniform 650;
+        value           $internalField;
+    }
+    maxX
+    {
+        type            fixedValue;
+        value           $internalField;
     }
     minY
     {
-        type            zeroGradient;
-        value           uniform 300;
+        type            fixedValue;
+        value           $internalField;
+    }
+    maxY
+    {
+        type            fixedValue;
+        value           $internalField;
     }
     minZ
     {
-        type            zeroGradient;
-        value           uniform 300;
-    }
-    maxZ
-    {
-        type            zeroGradient;
-        value           uniform 300;
+        type            fixedValue;
+        value           $internalField;
     }
     solid1_to_solid2
     {
         type            compressible::turbulentTemperatureCoupledBaffleMixed;
-        value           uniform 0;
+        value           uniform 650;
         Tnbr            T;
         kappaMethod     solidThermo;
     }

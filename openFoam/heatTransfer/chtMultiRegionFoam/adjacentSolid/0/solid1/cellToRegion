@@ -21,11 +21,11 @@ internalField   uniform 0;
 
 boundaryField
 {
-    maxY
+    minX
     {
         type            zeroGradient;
     }
-    minX
+    maxX
     {
         type            zeroGradient;
     }
@@ -33,11 +33,11 @@ boundaryField
     {
         type            zeroGradient;
     }
-    minZ
+    maxY
     {
         type            zeroGradient;
     }
-    maxZ
+    minZ
     {
         type            zeroGradient;
     }

@@ -21,12 +21,12 @@ internalField   uniform 0.1;
 
 boundaryField
 {
-    maxY
+    minX
     {
         type            calculated;
         value           uniform 0.1;
     }
-    minX
+    maxX
     {
         type            calculated;
         value           uniform 0.1;
@@ -36,12 +36,12 @@ boundaryField
         type            calculated;
         value           uniform 0.1;
     }
-    minZ
+    maxY
     {
         type            calculated;
         value           uniform 0.1;
     }
-    maxZ
+    minZ
     {
         type            calculated;
         value           uniform 0.1;

@@ -17,18 +17,14 @@ FoamFile
 
 T
 {
-    internalField   uniform 660;
+    internalField   uniform 1800;
 
     boundaryField
     {
-		maxX
-		{
-			type			fixedValue;
-			value			uniform 660;
-		}
         ".*"
         {
-            type            zeroGradient;
+			type			fixedValue;
+			value			$internalField;
         }
 
         "solid2_to_.*"
@@ -36,99 +32,7 @@ T
             type            compressible::turbulentTemperatureCoupledBaffleMixed;
             Tnbr            T;
             kappaMethod     solidThermo;
-//            value           uniform 660;
-        }
-    }
-}
-
-epsilon
-{
-    internalField   uniform 0.01;
-
-    boundaryField
-    {
-        ".*"
-        {
-            type            epsilonWallFunction;
-            value           uniform 0.01;
-        }
-
-        minX
-        {
-            type            fixedValue;
-            value           uniform 0.01;
-        }
-        maxX
-        {
-            type            inletOutlet;
-            inletValue      uniform 0.01;
-            value           uniform 0.01;
-        }
-    }
-}
-
-k
-{
-    internalField   uniform 0.1;
-
-    boundaryField
-    {
-        ".*"
-        {
-            type            kqRWallFunction;
-            value           uniform 0.1;
-        }
-
-        minX
-        {
-            type            fixedValue;
-            value           uniform 0.1;
-        }
-        maxX
-        {
-            type            inletOutlet;
-            inletValue      uniform 0.1;
-            value           uniform 0.1;
-        }
-    }
-}
-
-p_rgh
-{
-    internalField   uniform 1e5;
-
-    boundaryField
-    {
-        ".*"
-        {
-            type            fixedFluxPressure;
-            value           uniform 1e5;
-        }
-
-        maxX
-        {
-            type            fixedValue;
-            value           uniform 1e5;
-        }
-    }
-}
-
-p
-{
-    internalField   uniform 1e5;
-
-    boundaryField
-    {
-        ".*"
-        {
-            type            calculated;
-            value           uniform 1e5;
-        }
-
-        maxX
-        {
-            type            calculated;
-            value           uniform 1e5;
+			value           $internalField;
         }
     }
 }

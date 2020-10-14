@@ -17,39 +17,39 @@ FoamFile
 
 dimensions      [ 0 0 0 1 0 0 0 ];
 
-internalField   uniform 660;
+internalField   uniform 1800;
 
 boundaryField
 {
-    maxY
+    minX
     {
-        type            zeroGradient;
-        value           uniform 300;
+        type            fixedValue;
+        value           $internalField;
     }
     maxX
     {
         type            fixedValue;
-        value           uniform 660;
+        value           $internalField;
     }
     minY
     {
-        type            zeroGradient;
-        value           uniform 300;
+        type            fixedValue;
+        value           $internalField;
     }
-    minZ
+    maxY
     {
-        type            zeroGradient;
-        value           uniform 300;
+        type            fixedValue;
+        value           $internalField;
     }
     maxZ
     {
-        type            zeroGradient;
-        value           uniform 300;
+        type            fixedValue;
+        value           $internalField;
     }
     solid2_to_solid1
     {
         type            compressible::turbulentTemperatureCoupledBaffleMixed;
-        value           uniform 0;
+        value           $internalField;
         Tnbr            T;
         kappaMethod     solidThermo;
     }

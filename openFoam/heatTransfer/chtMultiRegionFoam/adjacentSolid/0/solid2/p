@@ -15,13 +15,13 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [ 1 -1 -2 0 0 0 0 ];
+dimensions      [1 -1 -2 0 0 0 0];
 
 internalField   uniform 100000;
 
 boundaryField
 {
-    maxY
+    minX
     {
         type            calculated;
         value           uniform 100000;
@@ -36,7 +36,7 @@ boundaryField
         type            calculated;
         value           uniform 100000;
     }
-    minZ
+    maxY
     {
         type            calculated;
         value           uniform 100000;
@@ -49,7 +49,7 @@ boundaryField
     solid2_to_solid1
     {
         type            calculated;
-        value           uniform 100000;
+        value           uniform 0;
     }
 }
 

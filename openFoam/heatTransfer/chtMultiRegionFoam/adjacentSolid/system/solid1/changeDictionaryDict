@@ -14,6 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+/*
 boundary
 {
     minZ
@@ -25,6 +26,7 @@ boundary
         type            patch;
     }
 }
+*/
 
 T
 {
@@ -32,21 +34,24 @@ T
 
     boundaryField
     {
+		/*
 		minX
 		{
 			type			fixedValue;
 			value			uniform 650;
 		}
+		*/
         ".*"
         {
-            type            zeroGradient;
+            type            fixedValue;
+			value			$internalField;
         }
         solid1_to_solid2
         {
             type            compressible::turbulentTemperatureCoupledBaffleMixed;
             Tnbr            T;
             kappaMethod     solidThermo;
-//            value           uniform 650;
+            value           uniform 650;
         }
     }
 }
