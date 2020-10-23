@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     chtMultiRegionFoam;
+application     chtMultiRegionFoamExt;
 
 startFrom       latestTime;
 
@@ -29,7 +29,7 @@ deltaT          0.001;
 
 writeControl    adjustableRunTime;
 
-writeInterval   1;
+writeInterval   10;
 
 purgeWrite      0;
 
@@ -54,8 +54,8 @@ adjustTimeStep  yes;
 
 functions
 {
-	#includeFunc singleGraph
 	#includeFunc singleGraph1
+	#includeFunc singleGraph2
 }
 
 // ************************************************************************* //
