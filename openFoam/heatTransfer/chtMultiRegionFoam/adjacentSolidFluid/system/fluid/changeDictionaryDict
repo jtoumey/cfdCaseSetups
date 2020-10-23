@@ -43,7 +43,7 @@ U
 
 T
 {
-    internalField   uniform 660;
+    internalField   uniform 1800;
 
     boundaryField
     {
@@ -63,7 +63,7 @@ T
             type            compressible::turbulentTemperatureCoupledBaffleMixed;
             Tnbr            T;
             kappaMethod     fluidThermo;
-            value           uniform 660;
+            value           uniform 1800;
         }
     }
 }
