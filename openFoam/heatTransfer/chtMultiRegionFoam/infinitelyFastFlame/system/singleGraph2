@@ -11,9 +11,9 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
-region solid;
-start   (-4.9999 0.0 0.0);
-end     ( 0.0 0.0 0.0);
+region  flame;
+start   (0.0 0.0 0.0);
+end     (0.999 0.0 0.0);
 fields  (T);
 
 // Sampling and I/O settings
