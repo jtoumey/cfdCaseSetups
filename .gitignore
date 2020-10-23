@@ -73,6 +73,7 @@ doc/Doxygen/DTAGS
 
 # Log files
 log.*
+log*.*
 
 # Post-processing files
 *.foam
