@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -J onrIffDp				# job name
+#SBATCH -o onrIffDp.o%j				# output and error file name (%j expands to jobID)
+#SBATCH -e onrIffDp.e%j				# output and error file name (%j expands to jobID)
+##SBATCH --exclusive				# exclusive mod
+#SBATCH --partition=generalsky			# allow 12 hours and parallel works
+#SBATCH --ntasks=1				# Number of mpi tasks (CPU cores) requested - 192 max
+#SBATCH --nodes=1				# 24 ntasks per node so ntasks/24 for optimal performance
+#SBATCH --time 12:00:00				# run time (hh:mm:ss) - 12 hr max
+#SBATCH --mail-user=julian.toumey@uconn.edu	# email
+#SBATCH --mail-type=begin			# email me when the job starts
+#SBATCH --mail-type=end				# email me when the job finishes
+#SBATCH --dependency=afterany:3164712
+srun decomposePar -allRegions
