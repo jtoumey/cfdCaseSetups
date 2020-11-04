@@ -19,32 +19,37 @@ solvers
 {
     p
     {
-        solver           PCG;
-        preconditioner   DIC;
-        tolerance        1e-9;
-        relTol           0.1;
+        solver           GAMG; // PCG;
+		nCellsInCoarsestLevel 445;
+        //preconditioner		DIC;
+		mergeLevels			1;	
+		smoother			GaussSeidel;
+        tolerance			1e-9;
+        relTol				0.01;
+		minIter				3;
     }
 
     pFinal
     {
         $p;
-        tolerance        1e-9;
-        relTol           0.0;
+        relTol				0.0;
     }
 
-    "(U|h|k|epsilon|equiH|cema_edge)"
+    "(U|e|h|k|nuTilda)"
     {
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-06;
-        relTol          0.1;
+        solver				smoothSolver; //PBiCGStab;
+		smoother			symGaussSeidel;
+        //preconditioner  DILU;
+        tolerance			1e-06;
+        relTol				0.01;
     }
 
-    "(U|h|k|epsilon|equiH|cema_edge)Final"
+    "(U|h|k|nuTilda)Final"
     {
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-06;
+        //solver          PBiCGStab;
+        //preconditioner  DILU;
+        //tolerance       1e-06;
+		$U;
         relTol          0;
     }
 
@@ -52,12 +57,20 @@ solvers
 
 PIMPLE
 {
-    nOuterCorrectors 1;
-    nCorrectors     10;
-    nNonOrthogonalCorrectors 0;
-    pRefCell        1001;
-    pRefValue       0;
+	momentumPredictor	 yes;
+    nOuterCorrectors	 1;
+    nCorrectors			 2;
+    nNonOrthogonalCorrectors 1;
+    //pRefCell        1001;
+    //pRefValue       0;
 }
 
+relaxationFactors
+{
+	equations
+	{
+		".*"	1;
+	}
+}
 
 // ************************************************************************* //
