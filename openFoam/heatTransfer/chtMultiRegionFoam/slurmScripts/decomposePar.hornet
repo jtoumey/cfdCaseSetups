@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -J onrIffDp
+#SBATCH -o onrIffDp.o%j
+#SBATCH -e onrIffDp.e%j
+##SBATCH --exclusive
+#SBATCH --partition=generalsky
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --time 12:00:00
+#SBATCH --mail-user=julian.toumey@uconn.edu
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=end
+#SBATCH --dependency=afterany:3164712
+srun decomposePar -allRegions

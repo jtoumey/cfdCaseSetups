@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J onrIffTs
+#SBATCH -o onrIffTs.o%j
+#SBATCH -e onrIffTs.e%j
+##SBATCH --exclusive
+#SBATCH --partition=generalsky
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --time 12:00:00
+#SBATCH --mail-user=julian.toumey@uconn.edu
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=end
+srun topoSet

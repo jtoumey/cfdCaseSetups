@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J onrIffSmr
+#SBATCH -o onrIffSmr.o%j
+#SBATCH -e onrIffSmr.e%j
+##SBATCH --exclusive
+#SBATCH --partition=generalsky
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --time 12:00:00
+#SBATCH --mail-user=julian.toumey@uconn.edu
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=end
+postProcess -func singleGraph
