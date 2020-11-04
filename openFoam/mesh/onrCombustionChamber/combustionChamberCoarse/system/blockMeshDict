@@ -1,0 +1,151 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 0.001;
+
+// All dimensions supplied in mm
+
+span 175.895;
+
+inletLength 74.232;
+inletHeight 38.101;
+
+bulkLength 244.063;
+stepHeight 19.989;
+
+xMinInlet  0.0;
+xMaxInlet  74.232;
+yMinInlet  19.989;
+yMaxInlet  58.09;
+zMin  0.0;
+zMax  175.895;
+
+xMaxBulk  318.295;  // Total combustion chamber length
+yMin  0.0;
+
+vertices
+(
+	// Block 0: Inlet
+	( $xMinInlet  $yMinInlet  $zMin)
+	( $xMaxInlet  $yMinInlet  $zMin)
+	( $xMaxInlet  $yMaxInlet  $zMin)
+	( $xMinInlet  $yMaxInlet  $zMin)
+	( $xMinInlet  $yMinInlet  $zMax)
+	( $xMaxInlet  $yMinInlet  $zMax)
+	( $xMaxInlet  $yMaxInlet  $zMax)
+	( $xMinInlet  $yMaxInlet  $zMax)
+
+	// Block 1: Bulk flow behind inlet
+	( $xMaxBulk  $yMinInlet  $zMin)
+	( $xMaxBulk  $yMaxInlet  $zMin)
+	( $xMaxBulk  $yMinInlet  $zMax)
+	( $xMaxBulk  $yMaxInlet  $zMax)
+
+	// Block 2: Bulk flow behind step
+	( $xMaxInlet  $yMin  $zMin)
+	( $xMaxBulk   $yMin  $zMin)
+	( $xMaxInlet  $yMin  $zMax)
+	( $xMaxBulk   $yMin  $zMax)
+);
+
+blocks
+(
+	// Block 0: Inlet
+    hex (0 1 2 3 4 5 6 7) (20 31 32) simpleGrading (1 1 1)
+
+	// Block 1: Bulk flow behind inlet
+    hex (1 8 9 2 5 10 11 6) (112 31 32) simpleGrading (1 1 1)
+
+	// Block 2: Bulk flow behind step
+    hex (12 13 8 1 14 15 10 5) (112 19 32) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (8 9 11 10)
+			(13 8 10 15)
+        );
+    }
+    topWall
+    {
+        type wall;
+        faces
+        (
+            (3 7 6 2)
+			(2 6 11 9)
+        );
+    }
+    bottomWallInlet
+    {
+        type wall;
+        faces
+        (
+            (0 1 5 4)
+        );
+    }
+	bottomWall
+	{
+		type wall;
+		faces
+		(
+			(12 13 15 14)
+		);
+	}
+    frontAndBackWalls
+    {
+        type wall;
+        faces
+        (
+            (0 3 2 1)
+            (5 6 7 4)
+			(1 2 9 8)
+			(12 1 8 13)
+			(10 11 6 5)
+			(15 10 5 14)
+        );
+    }
+	stepHeight
+	{
+		type wall;
+		faces
+		(
+			(14 5 1 12)
+		);
+	}
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //
