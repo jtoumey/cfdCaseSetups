@@ -75,11 +75,14 @@ dsGradeStreamwise 6.324;
 // Lower grade: Need multi-grading to prevent large jump at upper block
 //lowerGradeWn 
 
+nCellBulkStream 1205;
+nCellInletStream 1000;
+
 blocks
 (
 	// Block 0: Inlet
     hex (0 1 2 3 4 5 6 7) 
-	(118 31 $nCellSpan)
+	(nCellInletStream 31 $nCellSpan)
 	simpleGrading
 	(
 		1
@@ -91,7 +94,7 @@ blocks
 
 	// Block 1: Bulk flow behind inlet
     hex (1 8 9 2 5 10 11 6) 
-	(134 31 $nCellSpan) simpleGrading 
+	($nCellBulkStream 31 $nCellSpan) simpleGrading 
 	(
 		(
 			(1 1 $dsGradeStreamwise)
@@ -103,7 +106,7 @@ blocks
 	)
 	// Block 2: Bulk flow behind step
     hex (12 13 8 1 14 15 10 5) 
-	(134 56 $nCellSpan) 
+	($nCellBulkStream 56 $nCellSpan) 
 	simpleGrading
 	(
 		(
