@@ -68,6 +68,7 @@ nCellupWallNorm 31;
 
 // Upper grade: Just need refinement near lower wall
 upperGradeWn 77.1455;
+upperGradeWnTop 0.012963;
 
 // Downstream grade
 dsGradeStreamwise 6.324;
@@ -82,25 +83,27 @@ blocks
 (
 	// Block 0: Inlet
     hex (0 1 2 3 4 5 6 7) 
-	(nCellInletStream 31 $nCellSpan)
+	($nCellInletStream 62 $nCellSpan)
 	simpleGrading
 	(
 		1
 		(
-			(1 1 $upperGradeWn) 
+			(0.5 0.5 $upperGradeWn) 
+			(0.5 0.5 $upperGradeWnTop) 
 		)
 		1
 	)
 
 	// Block 1: Bulk flow behind inlet
     hex (1 8 9 2 5 10 11 6) 
-	($nCellBulkStream 31 $nCellSpan) simpleGrading 
+	($nCellBulkStream 62 $nCellSpan) simpleGrading 
 	(
 		(
 			(1 1 $dsGradeStreamwise)
 		)
 		(
-			(1 1 $upperGradeWn) 
+			(0.5 0.5 $upperGradeWn) 
+			(0.5 0.5 $upperGradeWnTop) 
 		)
 		1
 	)
