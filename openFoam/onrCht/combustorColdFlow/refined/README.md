@@ -4,6 +4,6 @@ julian.toumey@uconn.edu
 _Nov 2020_
 
 * Cold flow with `pimpleFoam` 
-* Coarse base mesh
+* Refined mesh with wall-normal simpleGrading 
 * Smagorinsky sub-grid model
 
