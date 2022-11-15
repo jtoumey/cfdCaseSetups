@@ -86,3 +86,5 @@ log.*
 **/polyMesh
 !boundaryData
 
+# macOS Files
+*.DS_Store
