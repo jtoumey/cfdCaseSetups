@@ -1,0 +1,44 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      turbulenceProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+simulationType  LES;
+
+LES
+{
+    LESModel        Smagorinsky;
+
+    turbulence      on;
+
+    printCoeffs     on;
+
+    delta           cubeRootVol;
+
+    SmagorinskyCoeffs
+    {
+    //  Ce
+    //  Ck
+        Prt        0.9;   //momentum diffusivity / thermal diffusivity = kinematic viscosity / alpha   ---> Prandtl # used to find thermal diffusivity since
+    }
+
+    cubeRootVolCoeffs
+    {
+        deltaCoeff      1;
+    }
+}
+
+
+// ************************************************************************* //

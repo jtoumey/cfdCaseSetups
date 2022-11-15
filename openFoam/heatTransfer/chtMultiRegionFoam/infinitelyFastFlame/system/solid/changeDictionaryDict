@@ -14,18 +14,6 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-boundary
-{
-    minZ
-    {
-        type            patch;
-    }
-    maxZ
-    {
-        type            patch;
-    }
-}
-
 T
 {
     internalField   uniform 650;
@@ -34,7 +22,8 @@ T
     {
         ".*"
         {
-            type            zeroGradient;
+            type            fixedValue;
+			value			$internalField;
         }
         solid_to_flame
         {

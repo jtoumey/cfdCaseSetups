@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J dlrOf_rP
+#SBATCH -o dlrOf_rP.o%j
+#SBATCH -e dlrOf_rP.e%j
+##SBATCH --exclusive
+#SBATCH --partition=generalsky
+#SBATCH --ntasks=1              
+#SBATCH --nodes=1
+#SBATCH --time 12:00:00      
+#SBATCH --mail-user=julian.toumey@uconn.edu
+#SBATCH --mail-type=begin  
+#SBATCH --mail-type=end   
+srun reconstructPar -time '1.979936, 1.989932, 1.999935'

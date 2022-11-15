@@ -25,16 +25,6 @@ U
             type            fixedValue;
             value           uniform (0 0 0);
         }
-        minX
-        {
-            type            fixedValue;
-            value           uniform (0 0 0);
-        }
-        maxX
-        {
-			type			fixedValue
-            value           uniform (0 0 0);
-        }
     }
 }
 
@@ -49,6 +39,11 @@ T
             type            fixedValue;
 			value			uniform 660;
         }
+
+		maxX
+		{
+			type			zeroGradient;
+		}
 
         "flame_to_.*"
         {

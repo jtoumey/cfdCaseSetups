@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*
+boundary
+{
+    minZ
+    {
+        type            patch;
+    }
+    maxZ
+    {
+        type            patch;
+    }
+}
+*/
+
+T
+{
+    internalField   uniform 650;
+
+    boundaryField
+    {
+		/*
+		minX
+		{
+			type			fixedValue;
+			value			uniform 650;
+		}
+		*/
+        ".*"
+        {
+            type            fixedValue;
+			value			$internalField;
+        }
+        solid1_to_solid2
+        {
+            type            compressible::turbulentTemperatureCoupledBaffleMixed;
+            Tnbr            T;
+            kappaMethod     solidThermo;
+            value           uniform 650;
+        }
+    }
+}
+
+// ************************************************************************* //

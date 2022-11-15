@@ -25,7 +25,7 @@ actions
         source  boxToCell;
         sourceInfo
         {
-            box (-100 -100 -100)(0.0 100 100);
+            box (-100 -100 -100)(-1e-6 100 100);
         }
     }
     {
